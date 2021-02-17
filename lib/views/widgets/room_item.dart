@@ -36,7 +36,7 @@ class RoomItem extends StatelessWidget {
                 fontSize: 16,
                 color: Colors.black,
               )),
-          subtitle: Text(room["title"],
+          subtitle: Text(room["last_message"]["content"],
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey,

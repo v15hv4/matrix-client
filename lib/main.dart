@@ -13,7 +13,6 @@ class Bleep extends StatelessWidget {
         SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent));
 
     return MaterialApp(
-        title: 'lol',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.green,

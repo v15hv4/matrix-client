@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "# bleep",
+                          "rooms",
                           style: TextStyle(
                               fontSize: 42,
                               fontWeight: FontWeight.w700,
