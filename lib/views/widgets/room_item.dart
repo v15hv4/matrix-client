@@ -1,8 +1,9 @@
+import 'package:bleep/models/room.dart';
 import 'package:flutter/material.dart';
 
 class RoomItem extends StatelessWidget {
   final int index;
-  final Map<String, dynamic> room;
+  final RoomModel room;
   RoomItem(this.index, this.room);
 
   @override
@@ -14,29 +15,20 @@ class RoomItem extends StatelessWidget {
             border:
                 new Border(bottom: new BorderSide(color: Colors.grey[300]))),
         child: ListTile(
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.group,
-                color: Colors.black,
-                size: 26,
-              ),
-            ],
-          ),
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("yesterday",
+              Text("${room.lastTS}",
                   style: TextStyle(color: Colors.grey[500], fontSize: 12))
             ],
           ),
-          title: Text(room["title"],
+          title: Text(room.name,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
+                fontWeight: FontWeight.w700,
               )),
-          subtitle: Text(room["last_message"]["content"],
+          subtitle: Text("${room.lastSender}: ${room.lastMessage}",
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
