@@ -5,6 +5,7 @@ class RoomModel {
   final String lastSender;
   final String lastMessage;
   final int lastTS;
+  final String prevBatch;
 
   RoomModel(
       {this.id,
@@ -12,7 +13,8 @@ class RoomModel {
       this.unread,
       this.lastSender,
       this.lastMessage,
-      this.lastTS});
+      this.lastTS,
+      this.prevBatch});
 
   factory RoomModel.fromJson(final id, final json) {
     int unread = json["org.matrix.msc2654.unread_count"];
@@ -23,6 +25,7 @@ class RoomModel {
         timeline[timeline.length - 1]["sender"].split(":")[0].substring(1);
     String lastMessage = timeline[timeline.length - 1]["content"]["body"];
     int lastTS = timeline[timeline.length - 1]["origin_server_ts"];
+    String prevBatch = json["timeline"]["prev_batch"];
     String name = "";
 
     try {
@@ -40,6 +43,7 @@ class RoomModel {
         unread: unread,
         lastSender: lastSender,
         lastMessage: lastMessage,
-        lastTS: lastTS);
+        lastTS: lastTS,
+        prevBatch: prevBatch);
   }
 }
