@@ -11,25 +11,43 @@ class Conversation extends StatefulWidget {
 }
 
 class _ConversationState extends State<Conversation> {
-  // final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: EmptyAppBar(),
         body: Container(
-            padding: EdgeInsets.all(24.0),
-            child: Column(children: <Widget>[
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
               SizedBox(
-                height: 80,
-                width: double.infinity,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: Icon(Icons.arrow_back)),
-                ),
-              ),
+                  height: 60,
+                  child: Row(children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 12),
+                      child: GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Icon(
+                            Icons.chevron_left,
+                            size: 32,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(widget.room.name,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w700)),
+                    )
+                  ])),
+              Container(
+                  decoration: BoxDecoration(
+                      border: Border(top: BorderSide(color: Colors.grey[300]))),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        suffixIcon: Icon(Icons.send),
+                        hintStyle: TextStyle(fontSize: 14),
+                        hintText: "Type a message...",
+                        contentPadding: EdgeInsets.all(16)),
+                  ))
             ])));
   }
 }
