@@ -1,6 +1,6 @@
+import 'package:bleep/views/widgets/empty_appbar.dart';
 import 'package:bleep/views/widgets/room_list.dart';
 import 'package:flutter/material.dart';
-import 'package:bleep/views/widgets/empty_appbar.dart';
 
 class Home extends StatefulWidget {
   @override
