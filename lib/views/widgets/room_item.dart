@@ -1,5 +1,6 @@
 import 'package:bleep/models/room.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class RoomItem extends StatelessWidget {
   final int index;
@@ -8,6 +9,9 @@ class RoomItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lastTS = new DateTime.fromMillisecondsSinceEpoch(room.lastTS);
+    final formattedTS = DateFormat("kk:mm\ndd MMM").format(lastTS);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: Container(
@@ -18,7 +22,8 @@ class RoomItem extends StatelessWidget {
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("${room.lastTS}",
+              Text(formattedTS,
+                  textAlign: TextAlign.end,
                   style: TextStyle(color: Colors.grey[500], fontSize: 12))
             ],
           ),
