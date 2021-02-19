@@ -62,6 +62,7 @@ class _ConversationState extends State<Conversation> {
                           onPressed: () {
                             sendMessage(inputController.text, widget.room,
                                 DateTime.now().millisecondsSinceEpoch);
+                            inputController.clear();
                           },
                         ),
                         hintStyle: TextStyle(fontSize: 14),
