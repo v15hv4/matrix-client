@@ -1,4 +1,6 @@
+import 'package:bleep/api/messages.dart';
 import 'package:bleep/models/room.dart';
+import 'package:bleep/views/screens/home.dart';
 import 'package:bleep/views/widgets/empty_appbar.dart';
 import 'package:bleep/views/widgets/message_list.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +28,8 @@ class _ConversationState extends State<Conversation> {
                     Padding(
                       padding: const EdgeInsets.only(left: 12),
                       child: GestureDetector(
-                          onTap: () => Navigator.pop(context),
+                          onTap: () => Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => Home())),
                           child: Icon(
                             Icons.chevron_left,
                             size: 32,
@@ -45,7 +48,12 @@ class _ConversationState extends State<Conversation> {
                       border: Border(top: BorderSide(color: Colors.grey[300]))),
                   child: TextField(
                     decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.send),
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.send),
+                          onPressed: () {
+                            sendMessage("lol", widget.room, 0);
+                          },
+                        ),
                         hintStyle: TextStyle(fontSize: 14),
                         hintText: "Type a message...",
                         contentPadding: EdgeInsets.all(16)),

@@ -39,7 +39,7 @@ class RoomItem extends StatelessWidget {
                   fontSize: 14,
                   color: Colors.grey,
                 )),
-            onTap: () => Navigator.push(
+            onTap: () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (_) => Conversation(room: room)),
             ),
