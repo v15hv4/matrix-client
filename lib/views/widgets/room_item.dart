@@ -25,7 +25,7 @@ class RoomItem extends StatelessWidget {
               children: [
                 Text(formattedTS,
                     textAlign: TextAlign.end,
-                    style: TextStyle(color: Colors.grey[500], fontSize: 12))
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12))
               ],
             ),
             title: Text(room.name,

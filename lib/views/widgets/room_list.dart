@@ -4,10 +4,6 @@ import 'package:bleep/views/widgets/room_item.dart';
 import 'package:flutter/material.dart';
 
 class RoomList extends StatefulWidget {
-  // final Future<List<Room>> roomItems;
-  // final Function updateRoomList;
-  // RoomList(this.roomItems, this.updateRoomList);
-
   @override
   _RoomListState createState() => _RoomListState();
 }

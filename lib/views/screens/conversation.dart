@@ -1,5 +1,6 @@
 import 'package:bleep/models/room.dart';
 import 'package:bleep/views/widgets/empty_appbar.dart';
+import 'package:bleep/views/widgets/message_list.dart';
 import 'package:flutter/material.dart';
 
 class Conversation extends StatefulWidget {
@@ -38,6 +39,7 @@ class _ConversationState extends State<Conversation> {
                               fontSize: 18, fontWeight: FontWeight.w700)),
                     )
                   ])),
+              Expanded(child: SizedBox(child: MessageList(room: widget.room))),
               Container(
                   decoration: BoxDecoration(
                       border: Border(top: BorderSide(color: Colors.grey[300]))),

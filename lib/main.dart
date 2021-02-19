@@ -15,7 +15,7 @@ class Bleep extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.grey,
           accentColor: Colors.black,
         ),
         home: Home());
