@@ -14,6 +14,14 @@ class Conversation extends StatefulWidget {
 }
 
 class _ConversationState extends State<Conversation> {
+  final inputController = TextEditingController();
+
+  @override
+  void dispose() {
+    inputController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +55,13 @@ class _ConversationState extends State<Conversation> {
                   decoration: BoxDecoration(
                       border: Border(top: BorderSide(color: Colors.grey[300]))),
                   child: TextField(
+                    controller: inputController,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
                           icon: Icon(Icons.send),
                           onPressed: () {
-                            sendMessage("lol", widget.room, 0);
+                            sendMessage(inputController.text, widget.room,
+                                DateTime.now().millisecondsSinceEpoch);
                           },
                         ),
                         hintStyle: TextStyle(fontSize: 14),

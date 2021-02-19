@@ -27,14 +27,18 @@ Future<List<MessageModel>> getMessages(final room) async {
   }
 }
 
-Future<bool> sendMessage(final message, final room, final txnId) async {
+Future<String> sendMessage(final message, final room, final txnId) async {
   Map<String, String> headers = {"Authorization": "Bearer $guestToken"};
   final url =
       "https://matrix.org/_matrix/client/r0/rooms/${room.id}/send/m.room.message/$txnId";
   final res = await http.put(url,
-      body: {"msgtype": "m.text", "body": message}, headers: headers);
+      body: jsonEncode({"msgtype": "m.text", "body": message}),
+      headers: headers);
 
-  print(res.body);
-
-  return true;
+  if (res.statusCode == 200) {
+    final json = jsonDecode(res.body);
+    return json["event_id"];
+  } else {
+    throw Exception();
+  }
 }
