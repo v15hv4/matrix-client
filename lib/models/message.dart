@@ -7,12 +7,16 @@ class MessageModel {
 
   MessageModel({this.id, this.text, this.sender, this.ts, this.outgoing});
 
-  factory MessageModel.fromJson(final json) {
+  factory MessageModel.fromJson(final json, final currentUserId) {
+    String text = json["content"]["body"];
+    String senderId = json["sender"];
+    String sender = senderId.split(":")[0];
+    int ts = json["origin_server_ts"];
     return MessageModel(
         id: "0",
-        text: "hi there",
-        sender: "@sender",
-        ts: 1620,
-        outgoing: json["outgoing"]);
+        text: text,
+        sender: sender,
+        ts: ts,
+        outgoing: senderId == currentUserId);
   }
 }

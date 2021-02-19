@@ -24,7 +24,7 @@ class MessageBubble extends StatelessWidget {
               children: [
                 !message.outgoing
                     ? (Container(
-                        width: 80.0 + 2 * message.text.length,
+                        width: 100.0 + 2 * message.text.length,
                         padding: const EdgeInsets.only(top: 2.0, bottom: 2.0),
                         child: Text(message.sender.substring(1),
                             style: TextStyle(
@@ -36,7 +36,7 @@ class MessageBubble extends StatelessWidget {
                         width: 0,
                       ),
                 Container(
-                  width: 80.0 + 2 * message.text.length,
+                  width: 100.0 + 2 * message.text.length,
                   padding: const EdgeInsets.only(top: 2.0),
                   child: Text(message.text,
                       style: TextStyle(
@@ -44,7 +44,7 @@ class MessageBubble extends StatelessWidget {
                               message.outgoing ? Colors.white : Colors.black)),
                 ),
                 Container(
-                  width: 80.0 + 2 * message.text.length,
+                  width: 100.0 + 2 * message.text.length,
                   padding: const EdgeInsets.only(top: 8.0, bottom: 1.0),
                   child: Align(
                     alignment: Alignment.centerRight,

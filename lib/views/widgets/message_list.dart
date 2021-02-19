@@ -1,4 +1,3 @@
-// import 'package:bleep/api/messages.dart';
 import 'package:bleep/api/messages.dart';
 import 'package:bleep/models/message.dart';
 import 'package:bleep/models/room.dart';
@@ -17,7 +16,7 @@ class _MessageListState extends State<MessageList> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MessageModel>>(
-        future: getMessages(),
+        future: getMessages(widget.room),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
